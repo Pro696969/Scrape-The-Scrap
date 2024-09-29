@@ -46,6 +46,11 @@ SE.click()
 # row.click()
 # print(SE)
 
+inside_buttons = driver.find_elements(By.TAG_NAME, 'td')
+inside_buttons[3].click()
 
+down = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div[2]/div/div/div/div/div/div')
+down.click()
 
+time.sleep(200)
 driver.close()
