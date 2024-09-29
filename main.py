@@ -46,11 +46,39 @@ SE.click()
 # row.click()
 # print(SE)
 
-inside_buttons = driver.find_elements(By.TAG_NAME, 'td')
-inside_buttons[3].click()
+time.sleep(2)
+TRS = driver.find_elements(By.XPATH, '/html/body/div[4]/div[2]/div/div[2]/div/div[1]/div/div/div/div[1]/table/tbody/tr')
+    
+# print(len(TRS))
 
-down = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div[2]/div/div/div/div/div/div')
-down.click()
+for slide in range(1, len(TRS)):
+    
+    # inside_buttons = driver.find_elements(By.TAG_NAME, 'td')
+    # inside_buttons[3].click()
+
+    print(slide)
+    
+    inside_buttons = driver.find_elements(By.XPATH, f'/html/body/div[4]/div[2]/div/div[2]/div/div[1]/div/div/div/div[1]/table/tbody/tr[{slide}]/td')
+    inside_buttons[3].click()
+    
+    download = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div[2]/div/div/div/div/div/div')
+    download.click()
+    time.sleep(1)
+    
+    goback = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div[1]/a[2]')
+    goback.click()
+    
+    time.sleep(2)
+    
+    
+    
+
+# for loop : 
+    # will appear in av summary page
+    # click on slide page
+    # click on download
+    # move to next page until u see  'Back to Units' 
+
 
 time.sleep(200)
 driver.close()
