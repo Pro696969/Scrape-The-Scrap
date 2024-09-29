@@ -2,7 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 import os
 
@@ -26,14 +27,22 @@ driver.find_element(By.ID, 'postloginform#/Academy/j_spring_security_check').cli
 time.sleep(2)
 my_courses = driver.find_element(By.XPATH, "/html/body/div/div/ul/li[5]/a").click()
 
-# my_courses = driver.find_element(By.CSS_SELECTOR,'#menuTab_653 a').click()
-
-sem_selector = driver.find_element(By.ID, 'semesters').send_keys('Sem-5')
-# # print(sem_selector.text)
 
 time.sleep(1)
 select = Select(driver.find_element(By.ID, 'semesters'))
 select.select_by_value('2518') #sem5
 # #map these valuse to a dictionary to generalize later on
+time.sleep(2)
+SE = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]')
+
+# rowWiseCourseContent_19053 = driver.find_element(By.ID, 'rowWiseCourseContent_19053').click()
+row = driver.find_element(By.XPATH, "//tr[@id='rowWiseCourseContent_19053']")
+ele = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//tr[@id='rowWiseCourseContent_19053']")))
+ele.click()
+# row.click()
+# print(SE)
+
+
+
 time.sleep(200)
 driver.close()

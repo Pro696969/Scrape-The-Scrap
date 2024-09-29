@@ -8,13 +8,12 @@ import time
 driver = webdriver.Firefox()
 driver.get("https://www.pesuacademy.com/Academy/")
 
+open('kids.txt', 'w').close()
 
-
-
-for i in range(1,681):
+for i in range(1,158):
     knowClsSection = driver.find_element(By.ID, 'knowClsSection').click()
     time.sleep(0.2)
-    knowClsSectionModalLoginId = driver.find_element(By.ID, 'knowClsSectionModalLoginId').send_keys(f"PES2UG22CS{str(i).zfill(3)}")
+    knowClsSectionModalLoginId = driver.find_element(By.ID, 'knowClsSectionModalLoginId').send_keys(f"PES2UG22EC{str(i).zfill(3)}")
     knowClsSectionModalSearch = driver.find_element(By.ID, 'knowClsSectionModalSearch').click()
     time.sleep(0.2)
     knowClsSectionModalTableDate = driver.find_elements(By.TAG_NAME, 'td')
