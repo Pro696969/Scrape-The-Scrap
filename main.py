@@ -36,7 +36,6 @@ time.sleep(2)
 SE = driver.find_element(By.XPATH, '/html/body/div[4]/div[2]/div/div/div[2]/div/div[3]/div/div/table/tbody/tr[1]/td[1]')
 SE.click()
 
-
 # GOD FKING KNOWS HOW SELENIUM WORKS SHATA 
 # row = driver.find_element(By.XPATH, "//tr[@id='rowWiseCourseContent_19053']")
 # time.sleep(1)
